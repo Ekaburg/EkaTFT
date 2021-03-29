@@ -1,0 +1,2 @@
+Arduino TFT shield v1.xx
+3.5' 320x240 TFT with resistive touchscreen and 5 buttons
