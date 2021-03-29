@@ -1,2 +1,5 @@
 Arduino TFT breakout board v2.xx for Arduino Nano
 Designed for work with 320x240 SPI TFT screen with resistive touchscreen
+
+Feature of the board:
+The board has a mini USB port for powering the board. The mini USB port on the Arduino Nano board is intended only for firmware upload (not for powering the board).
