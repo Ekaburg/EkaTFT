@@ -1,0 +1,2 @@
+Arduino TFT breakout board v2.xx for Arduino Nano
+Designed for work with 320x240 SPI TFT screen with resistive touchscreen
