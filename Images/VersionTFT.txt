@@ -1,0 +1,9 @@
+At the moment there are the following versions of Arduino shields and TFT boards:
+
+Version 1.xx - 3,5' 320x240 resistive sensor TFT shield for Arduino UNO, ESP32.
+
+Version 2.xx - break board for Arduino Nano. Work with 2,8' , 3.2' SPI TFT resistive sensor display (ILI9341).
+
+Version 3.xx - break board for ESP32. Work with 2,8' , 3.2' SPI TFT resistive sensor display (ILI9341).
+
+Version 4.xx - 2,8' 320x240 resistive sensor TFT shield for Arduino UNO, ESP32.
