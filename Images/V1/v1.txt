@@ -1,2 +1,2 @@
-Arduino TFT shield v1.xx
+Arduino TFT shield v1.xx for Arduino UNO, Mega2560, ESP-32
 3.5' 320x240 TFT with resistive touchscreen and 5 buttons
