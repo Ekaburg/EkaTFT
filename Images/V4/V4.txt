@@ -1,2 +1,5 @@
 Arduino TFT shield v4.xx for Arduino UNO, Mega2560, ESP-32
 2.8' 320x240 TFT with resistive touchscreen, camera input connector
+
+Shield Feature:
+To work with the Arduino shield, you must use a power adapter (with a voltage of at least 6 V and a current of at least 1A), which must be connected to the power port on the Arduino board.
