@@ -1,0 +1,2 @@
+Arduino TFT shield v4.xx for Arduino UNO, Mega2560, ESP-32
+2.8' 320x240 TFT with resistive touchscreen, camera input connector
