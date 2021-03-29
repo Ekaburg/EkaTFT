@@ -1,0 +1,2 @@
+Arduino TFT breakout board v3.xx for ESP-32
+Designed for work with 320x240 SPI TFT screen with resistive touchscreen
