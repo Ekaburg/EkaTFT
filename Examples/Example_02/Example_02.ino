@@ -1,5 +1,5 @@
 /*
- * Example sketch for Arduino TFT_shield v1.xx, v2.xx, v3.xx, v4.xx
+ * Example sketch for Arduino EkaTFT shields and breakboards v1.xx, v2.xx, v3.xx, v4.xx
  * 
  * Author: Rinat G. (2020)
  * 
