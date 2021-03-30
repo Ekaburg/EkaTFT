@@ -1,7 +1,7 @@
 /*
  * Example sketch for Arduino TFT_shield v1.xx, v2.xx, v3.xx, v4.xx
  * 
- * Author: Rinat G (2020)
+ * Author: Rinat G. (2020)
  * 
  * Comments:
  * This sketch demonstrate text & graphics.
