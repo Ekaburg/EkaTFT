@@ -905,8 +905,6 @@ class EKATFT:INTRFC {
     uint16_t    _lineThickness;      // Current line thickness
     bool        _panelSelect = 1;
     bool        _pause = 0;
-//    int32_t     get_max_x;
-//    int32_t     get_max_y;
 
  private:
 
