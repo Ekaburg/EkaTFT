@@ -125,10 +125,10 @@ void  SRL::SerialJPEGResize(JPEG_DECODE * decode, uint16_t left, uint16_t top, u
             div<<=1;
         }
     }
-    wrReg8(0x36C,div); wrReg8(0x36E,2); decode->display_height=div*(GetMaxY()+1);
-    decode->display_width=div*(GetMaxX()+1); uint32_t destAddr; uint32_t x, y;
+    wrReg8(0x36C,div); wrReg8(0x36E,2); decode->display_height=div*(bot);
+    decode->display_width=div*(right); uint32_t destAddr; uint32_t x, y;
     x=(right+left-decode->image_width/div)/2; y=(bot+top-decode->image_height/div)/2;
-    destAddr = ((y*(GetMaxX()+1)+x)>>1); destAddr &= ~0x0001; wrReg32(0x410, destAddr);
+    destAddr = ((y*(right)+x)>>1); destAddr &= ~0x0001; wrReg32(0x410, destAddr);
     decode->display_height=decode->display_height&(~(__align[decode->op_mode]-1));
     decode->display_width =decode->display_width &(~(__align[decode->op_mode]-1));
     size = decode->display_width-1; wrReg16(0x364,0); wrReg16(0x368,size);

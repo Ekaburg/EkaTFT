@@ -466,7 +466,7 @@ class  SDC:INTRFC {
     JPEG_ERR    SDJPEGHeader(JPEG_DECODE * decode);
     void        SDJPEGResize(JPEG_DECODE * decode, uint16_t left, uint16_t top, uint16_t right, uint16_t bot);
     JPEG_ERR    SDJPEGData(JPEG_DECODE * decode);
-    void        ClearDevice(void) { uint32_t i; for(i=0; i<(GetMaxY()+1); i++) { wrReg8(0x1E4, 0);
+    void        ClearDevice(void) { uint32_t i; for(i=0; i<(max_y+1); i++) { wrReg8(0x1E4, 0);
                                     wrReg8(0x1E5,0); wrReg8(0x1E8,i); wrReg8(0x1E9,i>>8); wrReg8(0x1EC,64);
                                     wrReg8(0x1ED,1); wrReg8(0x1F0,i); wrReg8(0x1F1,i>>8); wrReg8(0x1D4,0);
                                     wrReg8(0x1D5,0); wrReg8(0x1D6,0); wrReg8(0x1F4,0); wrReg8(0x1F5,0);
