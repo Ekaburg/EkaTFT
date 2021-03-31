@@ -1,5 +1,5 @@
 /*
- * Example sketch for Arduino EkaTFT shields and breakboards v1.xx, v2.xx, v3.xx, v4.xx
+ * Example sketch for Arduino TFT_shield v1.xx, v2.xx, v3.xx, v4.xx
  * 
  * Author: Rinat G. (2020)
  * 
@@ -24,8 +24,8 @@ XPT2046_Touchscreen ts(CS_PIN, 255);
 
 EKATFT tft(0);
 
-#define  Y_BAR_TOP      (GetMaxY()-50)
-#define  Y_BAR_BOT      GetMaxY()
+#define  Y_BAR_TOP      (tft.GetMaxY()-50)
+#define  Y_BAR_BOT      tft.GetMaxY()
 #define  BUTTON1_MASK   0x01
 #define  BUTTON2_MASK   0x02
 #define  BUTTON3_MASK   0x04
@@ -45,7 +45,6 @@ uint16_t  pos_y_mid = 0;
 uint16_t  color_paint = WHITE;
 uint8_t   buttons = 0;
 uint16_t  Color[4] = {BRIGHTBLUE, BRIGHTGREEN, BRIGHTRED, BRIGHTYELLOW};
-uint16_t  Gray[7] = {GRAY0, GRAY1, GRAY2, GRAY3, GRAY4, GRAY5, GRAY6};
 
 /*************************************************************************************************/
 void ClearScreen (void)
@@ -111,19 +110,19 @@ void loop()
         if (x > (pos_x_mid - 10) && x < (pos_x_mid + 10) && y > (pos_y_mid - 10) && y < (pos_y_mid + 10 )) {
               
             if (y > Y_BAR_TOP && y < Y_BAR_BOT) {
-                if (x < 1*(GetMaxX()+1)/5) {  // Touch Bar 1
+                if (x < 1*(tft.GetMaxX()+1)/5) {  // Touch Bar 1
                     color_paint = Color[0];
                     RefreshTitle();
                 } else
-                if (x < 2*(GetMaxX()+1)/5) {  // Touch Bar 2
+                if (x < 2*(tft.GetMaxX()+1)/5) {  // Touch Bar 2
                     color_paint = Color[1];
                     RefreshTitle();
                 } else
-                if (x < 3*(GetMaxX()+1)/5) {  // Touch Bar 3
+                if (x < 3*(tft.GetMaxX()+1)/5) {  // Touch Bar 3
                     color_paint = Color[2];
                     RefreshTitle();
                 } else
-                if (x < 4*(GetMaxX()+1)/5) {  // Touch Bar 4
+                if (x < 4*(tft.GetMaxX()+1)/5) {  // Touch Bar 4
                     color_paint = Color[3];
                     RefreshTitle();
                 } else {                     // Clear screen
@@ -148,12 +147,12 @@ void  RefreshWindow(void)
     ClearScreen();
     for (uint8_t i = 0; i < 4; i++) {
         tft.SetColor(Color[i]);
-        tft.DrawFillRect((i+1)*((GetMaxX()+1)/5), Y_BAR_TOP, (i)*((GetMaxX()+1)/5), Y_BAR_BOT);
+        tft.DrawFillRect((i+1)*((tft.GetMaxX()+1)/5), Y_BAR_TOP, (i)*((tft.GetMaxX()+1)/5), Y_BAR_BOT);
     }
     RefreshTitle();
     tft.SetColor(WHITE);
-    tft.OutTextXY(GetMaxX() - 50, GetMaxY() - 45, "Clear");
-    tft.OutTextXY(GetMaxX() - 55, GetMaxY() - 25, "screen");
+    tft.OutTextXY(tft.GetMaxX() - 50, tft.GetMaxY() - 45, "Clear");
+    tft.OutTextXY(tft.GetMaxX() - 55, tft.GetMaxY() - 25, "screen");
 }
 
 void  RefreshTitle(void)
