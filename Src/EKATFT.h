@@ -14,10 +14,10 @@
 #ifndef _EKATFT_H_
 #define _EKATFT_H_
 
-//#define EKA_TFT_VER_1   // 3.5' 320x240 TFT
+#define EKA_TFT_VER_1   // 3.5' 320x240 TFT
 //#define EKA_TFT_VER_2   // Break Board for Arduino Nano 
 //#define EKA_TFT_VER_3   // Break Board for ESP-32
-#define EKA_TFT_VER_4   // 2.8' 320x240 TFT
+//#define EKA_TFT_VER_4   // 2.8' 320x240 TFT
 
 #if ARDUINO >= 100
  #include "Arduino.h"
@@ -167,11 +167,6 @@ typedef enum {
 * Overview: Horizontal or vertical screen size.
 *********************************************************************/
 
-#ifdef EKA_TFT_VER_3   // Break Board for ESP-32
-#define DISP_ORIENTATION                            0
-#else
-#define DISP_ORIENTATION                          180
-#endif // EKA_TFT_VER_3   // Break Board for ESP-32
 #define DISP_HOR_RESOLUTION                       320
 #define DISP_VER_RESOLUTION                       240
 #define DISP_DATA_WIDTH                             8
@@ -182,24 +177,10 @@ typedef enum {
 #define DISP_VER_PULSE_WIDTH                        1
 #define DISP_VER_BACK_PORCH                        12
 #define DISP_VER_FRONT_PORCH                       12
-#if 1
 #define SCREEN_HOR_SIZE                           320
 #define SCREEN_VER_SIZE                           240
-#define LINE_MEM_PITCH                            320 
-#else
-#define SCREEN_HOR_SIZE                           240 //320
-#define SCREEN_VER_SIZE                           320 //240
-#define LINE_MEM_PITCH                            240 //320 
-#endif
+#define LINE_MEM_PITCH                            SCREEN_HOR_SIZE
 #define PAGE_MEM_SIZE     (uint32_t)SCREEN_HOR_SIZE*SCREEN_VER_SIZE*2 
-
-#if (DISP_ORIENTATION == 90) || (DISP_ORIENTATION == 270)
-    #define GetMaxX()   (SCREEN_VER_SIZE - 1)
-    #define GetMaxY()   (SCREEN_HOR_SIZE - 1)
-#elif (DISP_ORIENTATION == 0) || (DISP_ORIENTATION == 180)
-    #define GetMaxX()   (SCREEN_HOR_SIZE - 1)
-    #define GetMaxY()   (SCREEN_VER_SIZE - 1)
-#endif
 
 #define GetX()          _cursorX
 #define GetY()          _cursorY
@@ -829,6 +810,8 @@ class  INTRFC {
     uint8_t     _I2C_address;
     PREVIEW_PARAM _param;
     uint16_t    _color;
+    int32_t     get_max_x;
+    int32_t     get_max_y;
 };
 
 
@@ -873,7 +856,7 @@ class EKATFT:INTRFC {
     void        FloatWndInit(uint32_t startaddr, uint16_t linewidth, uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint8_t rgb);
     void        FloatWndEnable(bool enable) { if(enable==TRUE) wrReg8(0x71, rdReg8(0x71)|0x10); else wrReg8(0x71,rdReg8(0x71)&~0x10);};
     void        FocusWnd(uint8_t wnd);
-    void        ClearDevice(void) { uint32_t i; for(i=0; i<(_get_max_y+1); i++) { DrawLine(0, i, _get_max_x+1, i);}};
+    void        ClearDevice(void) { uint32_t i; for(i=0; i<(get_max_y+1); i++) { DrawLine(0, i, get_max_x+1, i);}};
     void        SetFont(const GFXfont * f);
 #if defined(ESP32)
     uint16_t    OutText(const char * textString);
@@ -892,6 +875,8 @@ class EKATFT:INTRFC {
 #else
     uint16_t    OutTextXY(int16_t x, int16_t y, char * textString);
 #endif
+    int32_t     GetMaxX(void) {return  get_max_x;};
+    int32_t     GetMaxY(void) {return  get_max_y;};
 #ifndef gpio_bl
     void        gpio_bl(uint8_t a) {gpio_blInline(a);};
 #endif
@@ -920,6 +905,8 @@ class EKATFT:INTRFC {
     uint16_t    _lineThickness;      // Current line thickness
     bool        _panelSelect = 1;
     bool        _pause = 0;
+//    int32_t     get_max_x;
+//    int32_t     get_max_y;
 
  private:
 
@@ -955,8 +942,6 @@ class EKATFT:INTRFC {
     uint8_t     driver;
     uint8_t     gpioStatus;
     int16_t     cursor_x, cursor_y;
-    int32_t     _get_max_x;
-    int32_t     _get_max_y;
     GFXfont   * gfxFont;
 };
 
