@@ -3,10 +3,10 @@
 
 const uint8_t OV7670_VGA[][2] PROGMEM =
 {
-    {   1, 0x42}, // Size of byte, Address (ID) 
-    { 640/16,  480/16}, // Size X, Size Y
+    {   1, 0x42},             // Size of byte, Address (ID) 
+    { 640/16,  480/16},       // Size X, Size Y
     {0b01000010, 0b00000100}, // Reset_Enable_N, 7|6|5|4|3|Vsync Invert|Hsync Invert|0
-
+  // Addr  Data
     {0x3a, 0x0C},
     {0x40, 0xC0},
     {0x12, 0x00}, // VGA
@@ -71,10 +71,10 @@ const uint8_t OV7670_VGA[][2] PROGMEM =
 
 const uint8_t OV7670_QVGA[][2] PROGMEM =
 {
-    {   1, 0x42}, // Size of byte, Address (ID) 
-    { 320/16,  240/16}, // Size X, Size Y
+    {   1, 0x42},             // Size of byte, Address (ID) 
+    { 320/16,  240/16},       // Size X, Size Y
     {0b01000010, 0b00000100}, // Reset_Enable_N, 7|6|5|4|3|Vsync Invert|Hsync Invert|0
-
+  // Addr  Data
     {0x3a, 0x0C},
     {0x40, 0xC0},
     {0x12, 0x10}, // QVGA
