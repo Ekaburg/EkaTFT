@@ -810,8 +810,8 @@ class  INTRFC {
     uint8_t     _I2C_address;
     PREVIEW_PARAM _param;
     uint16_t    _color;
-    int32_t     get_max_x;
-    int32_t     get_max_y;
+    uint16_t     max_x;
+    uint16_t     max_y;
 };
 
 
@@ -856,7 +856,7 @@ class EKATFT:INTRFC {
     void        FloatWndInit(uint32_t startaddr, uint16_t linewidth, uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint8_t rgb);
     void        FloatWndEnable(bool enable) { if(enable==TRUE) wrReg8(0x71, rdReg8(0x71)|0x10); else wrReg8(0x71,rdReg8(0x71)&~0x10);};
     void        FocusWnd(uint8_t wnd);
-    void        ClearDevice(void) { uint32_t i; for(i=0; i<(get_max_y+1); i++) { DrawLine(0, i, get_max_x+1, i);}};
+    void        ClearDevice(void) { uint32_t i; for(i=0; i<(max_y+1); i++) { DrawLine(0, i, max_x+1, i);}};
     void        SetFont(const GFXfont * f);
 #if defined(ESP32)
     uint16_t    OutText(const char * textString);
@@ -875,8 +875,8 @@ class EKATFT:INTRFC {
 #else
     uint16_t    OutTextXY(int16_t x, int16_t y, char * textString);
 #endif
-    int32_t     GetMaxX(void) {return  get_max_x;};
-    int32_t     GetMaxY(void) {return  get_max_y;};
+    uint16_t     GetMaxX(void) {return  max_x;};
+    uint16_t     GetMaxY(void) {return  max_y;};
 #ifndef gpio_bl
     void        gpio_bl(uint8_t a) {gpio_blInline(a);};
 #endif

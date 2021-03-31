@@ -58,30 +58,30 @@ void  EKATFT::begin(uint16_t id, int8_t shift, uint8_t mirr_h, uint8_t mirr_v, u
 // Rotate 0
     if (rotate == 0) {
       _line_mem_pitch = DISP_HOR_RESOLUTION;
-      get_max_x      = DISP_HOR_RESOLUTION - 1;
-      get_max_y      = DISP_VER_RESOLUTION - 1;
+      max_x           = DISP_HOR_RESOLUTION - 1;
+      max_y           = DISP_VER_RESOLUTION - 1;
       startaddr = 0;
     }
 // Rotate 90
     if (rotate == 1) {
       _line_mem_pitch = DISP_VER_RESOLUTION;
-      get_max_x      = DISP_VER_RESOLUTION - 1;
-      get_max_y      = DISP_HOR_RESOLUTION - 1;
-      startaddr = (((uint32_t) get_max_x + 1) >> 1) - 1;
+      max_x           = DISP_VER_RESOLUTION - 1;
+      max_y           = DISP_HOR_RESOLUTION - 1;
+      startaddr = (((uint32_t)max_x + 1) >> 1) - 1;
     }
 // Rotate 180
     if (rotate == 2) {
       _line_mem_pitch = DISP_HOR_RESOLUTION;
-      get_max_x      = DISP_HOR_RESOLUTION - 1;
-      get_max_y      = DISP_VER_RESOLUTION - 1;
-      startaddr = ((((uint32_t) get_max_x + 1) * (get_max_y + 1)) >> 1) - 1;
+      max_x           = DISP_HOR_RESOLUTION - 1;
+      max_y           = DISP_VER_RESOLUTION - 1;
+      startaddr = ((((uint32_t)max_x + 1) * ((uint32_t)max_y + 1)) >> 1) - 1;
     }
 // Rotate 270
     if (rotate == 3) {
       _line_mem_pitch = DISP_VER_RESOLUTION;
-      get_max_x      = DISP_VER_RESOLUTION - 1;
-      get_max_y      = DISP_HOR_RESOLUTION - 1;
-      startaddr = (((uint32_t) get_max_x + 1) * get_max_y) >> 1;
+      max_x           = DISP_VER_RESOLUTION - 1;
+      max_y           = DISP_HOR_RESOLUTION - 1;
+      startaddr = (((uint32_t)max_x + 1) * (uint32_t)max_y) >> 1;
     }
     MainWndInit(startaddr, _line_mem_pitch, 0x04, rotate, 1);
     MainWndEnable(true);
@@ -126,30 +126,30 @@ void  EKATFT::begin(uint16_t id, int8_t shift, uint8_t mirr_h, uint8_t mirr_v, u
 // Rotate 0
     if (rotate == 0) {
       _line_mem_pitch = DISP_HOR_RESOLUTION;
-      get_max_x      = DISP_HOR_RESOLUTION - 1;
-      get_max_y      = DISP_VER_RESOLUTION - 1;
+      max_x     = DISP_HOR_RESOLUTION - 1;
+      max_y     = DISP_VER_RESOLUTION - 1;
       startaddr = 0;
     }
 // Rotate 90
     if (rotate == 1) {
       _line_mem_pitch = DISP_VER_RESOLUTION;
-      get_max_x      = DISP_VER_RESOLUTION - 1;
-      get_max_y      = DISP_HOR_RESOLUTION - 1;
-      startaddr = (((uint32_t) get_max_x + 1) >> 1) - 1;
+      max_x     = DISP_VER_RESOLUTION - 1;
+      max_y     = DISP_HOR_RESOLUTION - 1;
+      startaddr = (((uint32_t)max_x + 1) >> 1) - 1;
     }
 // Rotate 180
     if (rotate == 2) {
       _line_mem_pitch = DISP_HOR_RESOLUTION;
-      get_max_x      = DISP_HOR_RESOLUTION - 1;
-      get_max_y      = DISP_VER_RESOLUTION - 1;
-      startaddr = ((((uint32_t) get_max_x + 1) * (get_max_y + 1)) >> 1) - 1;
+      max_x     = DISP_HOR_RESOLUTION - 1;
+      max_y     = DISP_VER_RESOLUTION - 1;
+      startaddr = ((((uint32_t)max_x + 1) * ((uint32_t)max_y + 1)) >> 1) - 1;
     }
 // Rotate 270
     if (rotate == 3) {
       _line_mem_pitch = DISP_VER_RESOLUTION;
-      get_max_x      = DISP_VER_RESOLUTION - 1;
-      get_max_y      = DISP_HOR_RESOLUTION - 1;
-      startaddr = (((uint32_t) get_max_x + 1) * get_max_y) >> 1;
+      max_x     = DISP_VER_RESOLUTION - 1;
+      max_y     = DISP_HOR_RESOLUTION - 1;
+      startaddr = (((uint32_t)max_x + 1) * (uint32_t)max_y) >> 1;
     }
     MainWndInit(startaddr, _line_mem_pitch, 0x04, rotate, 1);
     MainWndEnable(true);
@@ -194,30 +194,30 @@ void  EKATFT::begin(uint16_t id, int8_t shift, uint8_t mirr_h, uint8_t mirr_v, u
 // Rotate 0
     if (rotate == 0) {
       _line_mem_pitch = DISP_VER_RESOLUTION;
-      get_max_x      = DISP_VER_RESOLUTION - 1;
-      get_max_y      = DISP_HOR_RESOLUTION - 1;
+      max_x     = DISP_VER_RESOLUTION - 1;
+      max_y     = DISP_HOR_RESOLUTION - 1;
       startaddr = 0;
     }
 // Rotate 90
     if (rotate == 1) {
       _line_mem_pitch = DISP_HOR_RESOLUTION;
-      get_max_x      = DISP_HOR_RESOLUTION - 1;
-      get_max_y      = DISP_VER_RESOLUTION - 1;
-      startaddr = (((uint32_t) get_max_x + 1) >> 1) - 1;
+      max_x     = DISP_HOR_RESOLUTION - 1;
+      max_y     = DISP_VER_RESOLUTION - 1;
+      startaddr = (((uint32_t)max_x + 1) >> 1) - 1;
     }
 // Rotate 180
     if (rotate == 2) {
       _line_mem_pitch = DISP_VER_RESOLUTION;
-      get_max_x      = DISP_VER_RESOLUTION - 1;
-      get_max_y      = DISP_HOR_RESOLUTION - 1;
-      startaddr = ((((uint32_t) get_max_x + 1) * (get_max_y + 1)) >> 1) - 1;
+      max_x     = DISP_VER_RESOLUTION - 1;
+      max_y     = DISP_HOR_RESOLUTION - 1;
+      startaddr = ((((uint32_t)max_x + 1) * ((uint32_t)max_y + 1)) >> 1) - 1;
     }
 // Rotate 270
     if (rotate == 3) {
       _line_mem_pitch=DISP_HOR_RESOLUTION;
-      get_max_x      = DISP_HOR_RESOLUTION - 1;
-      get_max_y      = DISP_VER_RESOLUTION - 1;
-      startaddr = (((uint32_t) get_max_x + 1) * get_max_y) >> 1;
+      max_x     = DISP_HOR_RESOLUTION - 1;
+      max_y     = DISP_VER_RESOLUTION - 1;
+      startaddr = (((uint32_t)max_x + 1) * (uint32_t)max_y) >> 1;
     }
     MainWndInit(startaddr, _line_mem_pitch, 0x04, rotate, 1);
     MainWndEnable(true);
@@ -341,8 +341,8 @@ uint16_t  EKATFT::DrawLine(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2) {
     wrReg8(0x1E9, (y1 >> 8) & 0xFF); wrReg8(0x1EC, x2 & 0xFF); wrReg8(0x1ED, (x2 >> 8) & 0xFF);
     wrReg8(0x1F0, y2 & 0xFF); wrReg8(0x1F1, (y2 >> 8) & 0xFF); wrReg8(0x1D4, 0);
     wrReg8(0x1D5, 0); wrReg8(0x1D6, 0); wrReg8(0x1F4, 0); wrReg8(0x1F5, 0); wrReg8(0x1F6, 0);
-    wrReg8(0x1F8, (get_max_x + 1) & 0xFF); wrReg8(0x1F9, ((get_max_x + 1) >> 8) & 0xFF);
-    wrReg8(0x1D8, (get_max_y + 1) & 0xFF); wrReg8(0x1D9, ((get_max_y + 1) >> 8) & 0xFF);
+    wrReg8(0x1F8, (max_x + 1) & 0xFF); wrReg8(0x1F9, ((max_x + 1) >> 8) & 0xFF);
+    wrReg8(0x1D8, (max_y + 1) & 0xFF); wrReg8(0x1D9, ((max_y + 1) >> 8) & 0xFF);
     wrReg8(0x1FE, RED8(_color)); wrReg8(0x1FD, GREEN8(_color)); wrReg8(0x1FC, BLUE8(_color));
     wrReg8(0x1DD, 0x00); wrReg8(0x1D1, 0x01); wrReg8(0x1D2, 0x01);
     return (1);
@@ -436,9 +436,9 @@ void  EKATFT::DrawFillRect(int16_t left, int16_t top, int16_t right, int16_t bot
     if (left > right) { sw = right; right = left; left = sw;}
     if (top > bottom) { sw = bottom; bottom = top; top = sw;}
     wrReg8(0x1D4, 0); wrReg8(0x1D5, 0); wrReg8(0x1D6, 0); wrReg8(0x1F4, 0);
-    wrReg8(0x1F5, 0); wrReg8(0x1F6, 0); wrReg8(0x1F8, (get_max_x + 1) & 0xFF);
-    wrReg8(0x1F9, ((get_max_x + 1) >> 8) & 0xFF); wrReg8(0x1D8, (get_max_y + 1) & 0xFF);
-    wrReg8(0x1D9, ((get_max_y + 1) >> 8) & 0xFF); wrReg8(0x1FE, RED8(_color));
+    wrReg8(0x1F5, 0); wrReg8(0x1F6, 0); wrReg8(0x1F8, (max_x + 1) & 0xFF);
+    wrReg8(0x1F9, ((max_x + 1) >> 8) & 0xFF); wrReg8(0x1D8, (max_y + 1) & 0xFF);
+    wrReg8(0x1D9, ((max_y + 1) >> 8) & 0xFF); wrReg8(0x1FE, RED8(_color));
     wrReg8(0x1FD, GREEN8(_color)); wrReg8(0x1FC, BLUE8(_color)); wrReg8(0x1DD, 0x00);
     wrReg8(0x1D1, 0x01); int16_t x,y;
     for (y=top; y<bottom+1; y++) {
