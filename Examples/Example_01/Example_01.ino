@@ -79,8 +79,8 @@ void loop()
     Serial.print("2) Draw circle (");
     total_time = millis();
     tft.SetColor(BRIGHTRED);
-    for (i = 10; i < GetMaxY()>>1; i += 10) {
-        tft.DrawCirc(GetMaxX()>>1, GetMaxY()>>1, i);
+    for (i = 10; i < tft.GetMaxY()>>1; i += 10) {
+        tft.DrawCirc(tft.GetMaxX()>>1, tft.GetMaxY()>>1, i);
     }
 
     PrintTotalTime();
@@ -91,17 +91,17 @@ void loop()
     Serial.print("3) Draw FillCircle and FillRect (");
     total_time = millis();
     tft.SetColor(BRIGHTRED);
-    tft.DrawFillCirc(GetMaxX()>>1,GetMaxY()>>1,110);
+    tft.DrawFillCirc(tft.GetMaxX()>>1,tft.GetMaxY()>>1,110);
     tft.SetColor(BRIGHTCYAN);
-    tft.DrawFillRect(GetMaxX()/2-77,GetMaxY()/2-77, GetMaxX()/2+77,GetMaxY()/2+77);
+    tft.DrawFillRect(tft.GetMaxX()/2-77,tft.GetMaxY()/2-77, tft.GetMaxX()/2+77,tft.GetMaxY()/2+77);
     tft.SetColor(BRIGHTGREEN);
-    tft.DrawFillCirc(GetMaxX()>>1,GetMaxY()>>1,77);
+    tft.DrawFillCirc(tft.GetMaxX()>>1,tft.GetMaxY()>>1,77);
     tft.SetColor(BRIGHTMAGENTA);
-    tft.DrawFillRect(GetMaxX()/2-54,GetMaxY()/2-54, GetMaxX()/2+54,GetMaxY()/2+54);
+    tft.DrawFillRect(tft.GetMaxX()/2-54,tft.GetMaxY()/2-54, tft.GetMaxX()/2+54,tft.GetMaxY()/2+54);
     tft.SetColor(BRIGHTBLUE);
-    tft.DrawFillCirc(GetMaxX()>>1,GetMaxY()>>1,54);
+    tft.DrawFillCirc(tft.GetMaxX()>>1,tft.GetMaxY()>>1,54);
     tft.SetColor(BRIGHTYELLOW);
-    tft.DrawFillRect(GetMaxX()/2-37,GetMaxY()/2-37, GetMaxX()/2+37,GetMaxY()/2+37);
+    tft.DrawFillRect(tft.GetMaxX()/2-37,tft.GetMaxY()/2-37, tft.GetMaxX()/2+37,tft.GetMaxY()/2+37);
 
     PrintTotalTime();
 
@@ -113,11 +113,11 @@ void loop()
     total_time = millis();
     ClearScreen();
     tft.SetColor(BRIGHTBLUE);
-    tft.DrawArc((GetMaxX()>>1)-60,(GetMaxY()>>1)-60,(GetMaxX()>>1)+60,(GetMaxY()>>1)+60,20,30,0xFF);
+    tft.DrawArc((tft.GetMaxX()>>1)-60,(tft.GetMaxY()>>1)-60,(tft.GetMaxX()>>1)+60,(tft.GetMaxY()>>1)+60,20,30,0xFF);
     tft.SetColor(BRIGHTGREEN);
-    tft.DrawArc((GetMaxX()>>1)-40,(GetMaxY()>>1)-40,(GetMaxX()>>1)+40,(GetMaxY()>>1)+40,20,30,0xFF);
+    tft.DrawArc((tft.GetMaxX()>>1)-40,(tft.GetMaxY()>>1)-40,(tft.GetMaxX()>>1)+40,(tft.GetMaxY()>>1)+40,20,30,0xFF);
     tft.SetColor(BRIGHTRED);
-    tft.DrawArc((GetMaxX()>>1)-20,(GetMaxY()>>1)-20,(GetMaxX()>>1)+20,(GetMaxY()>>1)+20,20,30,0xFF);
+    tft.DrawArc((tft.GetMaxX()>>1)-20,(tft.GetMaxY()>>1)-20,(tft.GetMaxX()>>1)+20,(tft.GetMaxY()>>1)+20,20,30,0xFF);
 
     PrintTotalTime();
 
@@ -126,11 +126,11 @@ void loop()
     Serial.print("5) Draw FillBevel (");
     total_time = millis();
     tft.SetColor(BRIGHTBLUE);
-    tft.DrawFillBevel((GetMaxX()>>1)-60,(GetMaxY()>>1)-60,(GetMaxX()>>1)+60,(GetMaxY()>>1)+60,30);
+    tft.DrawFillBevel((tft.GetMaxX()>>1)-60,(tft.GetMaxY()>>1)-60,(tft.GetMaxX()>>1)+60,(tft.GetMaxY()>>1)+60,30);
     tft.SetColor(BRIGHTGREEN);
-    tft.DrawFillBevel((GetMaxX()>>1)-40,(GetMaxY()>>1)-40,(GetMaxX()>>1)+40,(GetMaxY()>>1)+40,30);
+    tft.DrawFillBevel((tft.GetMaxX()>>1)-40,(tft.GetMaxY()>>1)-40,(tft.GetMaxX()>>1)+40,(tft.GetMaxY()>>1)+40,30);
     tft.SetColor(BRIGHTRED);
-    tft.DrawFillBevel((GetMaxX()>>1)-20,(GetMaxY()>>1)-20,(GetMaxX()>>1)+20,(GetMaxY()>>1)+20,30);
+    tft.DrawFillBevel((tft.GetMaxX()>>1)-20,(tft.GetMaxY()>>1)-20,(tft.GetMaxX()>>1)+20,(tft.GetMaxY()>>1)+20,30);
 
     PrintTotalTime();
 
@@ -141,15 +141,15 @@ void loop()
     total_time = millis();
     for (i = 0; i < 4; i++) {
         tft.SetColor(Color[i]);
-        tft.DrawArc((GetMaxX()>>1),(GetMaxY()>>1)-50,(GetMaxX()>>1),(GetMaxY()>>1)+50,50,60,0x11<<i);
+        tft.DrawArc((tft.GetMaxX()>>1),(tft.GetMaxY()>>1)-50,(tft.GetMaxX()>>1),(tft.GetMaxY()>>1)+50,50,60,0x11<<i);
     }
     for (i = 0; i < 4; i++) {
         tft.SetColor(Color[i]);
-        tft.DrawArc((GetMaxX()>>1),(GetMaxY()>>1)-30,(GetMaxX()>>1),(GetMaxY()>>1)+30,35,45,0x11<<i);
+        tft.DrawArc((tft.GetMaxX()>>1),(tft.GetMaxY()>>1)-30,(tft.GetMaxX()>>1),(tft.GetMaxY()>>1)+30,35,45,0x11<<i);
     }
     for (i = 0; i < 4; i++) {
         tft.SetColor(Color[i]);
-        tft.DrawArc((GetMaxX()>>1),(GetMaxY()>>1),(GetMaxX()>>1),(GetMaxY()>>1),20,30,0x11<<i);
+        tft.DrawArc((tft.GetMaxX()>>1),(tft.GetMaxY()>>1),(tft.GetMaxX()>>1),(tft.GetMaxY()>>1),20,30,0x11<<i);
     }
 
     PrintTotalTime();
@@ -162,10 +162,10 @@ void loop()
     total_time = millis();
     for (i = 0; i < 1000; i++) {
         tft.SetColor(random(65535));
-        x  = random(GetMaxX());
-        y  = random(GetMaxY());
-        x2 = random(GetMaxX());
-        y2 = random(GetMaxY());
+        x  = random(tft.GetMaxX());
+        y  = random(tft.GetMaxY());
+        x2 = random(tft.GetMaxX());
+        y2 = random(tft.GetMaxY());
         tft.DrawLine(x, y, x2, y2);
     }
 
@@ -206,4 +206,4 @@ void  RedrawFillScreen (uint16_t color)
     PrintTotalTime();
 
     delay(1000);
-}
+}   
